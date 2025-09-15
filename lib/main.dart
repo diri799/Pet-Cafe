@@ -8,10 +8,17 @@ import 'package:pawfect_care/core/theme/app_theme.dart';
 import 'package:pawfect_care/core/database/database_helper.dart';
 import 'package:pawfect_care/core/services/notification_service.dart';
 import 'package:pawfect_care/core/services/user_service.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 // Firebase services removed for web compatibility
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize database factory for desktop platforms
+  if (!kIsWeb) {
+    sqfliteFfiInit();
+    databaseFactory = databaseFactoryFfi;
+  }
 
   // Initialize database (skip on web)
   if (!kIsWeb) {

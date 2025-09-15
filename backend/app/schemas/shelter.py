@@ -74,3 +74,6 @@ class AdoptionRequestInDB(AdoptionRequestBase):
 
 class AdoptionRequest(AdoptionRequestInDB):
     pass
+
+
+

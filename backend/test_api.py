@@ -109,3 +109,6 @@ if __name__ == "__main__":
         print("Make sure the server is running with: python -m uvicorn app.main:app --reload")
     except Exception as e:
         print(f"Error: {e}")
+
+
+

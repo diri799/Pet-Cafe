@@ -46,7 +46,10 @@ class UserService {
       return;
     }
 
-    // For mobile platform, use database
+    // For desktop/mobile platform, use database
+    // Create demo users if they don't exist
+    await _createDemoUsersForDatabase();
+
     final userId = prefs.getInt(_currentUserIdKey);
 
     if (userId != null) {
@@ -74,6 +77,53 @@ class UserService {
     await prefs.setString('demo_shelter_admin_password', 'shelterpass123');
     await prefs.setString('demo_shelter_admin_name', 'Happy Paws Shelter');
     await prefs.setString('demo_shelter_admin_phone', '+1234567892');
+  }
+
+  // Create demo users for database platform
+  Future<void> _createDemoUsersForDatabase() async {
+    try {
+      // Check if demo users already exist
+      final petOwner = await _dbHelper.getUserByEmail('john@example.com');
+      if (petOwner == null) {
+        await _dbHelper.insertUser({
+          'name': 'John Doe',
+          'email': 'john@example.com',
+          'password': 'password123',
+          'phone': '+1234567890',
+          'role': 'pet_owner',
+          'created_at': DateTime.now().toIso8601String(),
+          'updated_at': DateTime.now().toIso8601String(),
+        });
+      }
+
+      final veterinarian = await _dbHelper.getUserByEmail('dr.sarah@vet.com');
+      if (veterinarian == null) {
+        await _dbHelper.insertUser({
+          'name': 'Dr. Sarah Wilson',
+          'email': 'dr.sarah@vet.com',
+          'password': 'vetpass123',
+          'phone': '+1234567891',
+          'role': 'veterinarian',
+          'created_at': DateTime.now().toIso8601String(),
+          'updated_at': DateTime.now().toIso8601String(),
+        });
+      }
+
+      final shelterAdmin = await _dbHelper.getUserByEmail('admin@shelter.com');
+      if (shelterAdmin == null) {
+        await _dbHelper.insertUser({
+          'name': 'Happy Paws Shelter',
+          'email': 'admin@shelter.com',
+          'password': 'shelterpass123',
+          'phone': '+1234567892',
+          'role': 'shelter_admin',
+          'created_at': DateTime.now().toIso8601String(),
+          'updated_at': DateTime.now().toIso8601String(),
+        });
+      }
+    } catch (e) {
+      debugPrint('Failed to create demo users: $e');
+    }
   }
 
   // Login with email and password

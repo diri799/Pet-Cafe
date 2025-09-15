@@ -40,3 +40,6 @@ class BlogPost(Base):
     @published_bool.setter
     def published_bool(self, value: bool):
         self.published = "1" if value else "0"
+
+
+

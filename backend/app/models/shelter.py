@@ -60,3 +60,6 @@ class AdoptionRequest(Base):
     # Relationships
     shelter_pet = relationship("ShelterPet", back_populates="adoption_requests")
     requester = relationship("User", back_populates="adoption_requests")
+
+
+

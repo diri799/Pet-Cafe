@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pawfect_care/core/theme/app_theme.dart';
+import 'package:pawfect_care/core/widgets/custom_app_bar.dart';
 import 'package:pawfect_care/features/products/models/product_model.dart';
 import 'package:pawfect_care/features/products/widgets/product_card.dart';
 import 'package:pawfect_care/features/products/providers/product_provider.dart';
@@ -42,7 +43,8 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
       Product(
         id: 'food1',
         name: 'Premium Dog Food',
-        description: 'Nutritionally balanced dog food with real meat as the first ingredient.',
+        description:
+            'Nutritionally balanced dog food with real meat as the first ingredient.',
         price: 49.99,
         rating: 4.9,
         imageUrls: ['assets/images/pfood1-removebg-preview.png'],
@@ -53,7 +55,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-       Product(
+      Product(
         id: 'food3',
         name: 'Premium Dog Food',
         description: 'Nutritionally balanced dog food with real fish.',
@@ -67,10 +69,11 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-       Product(
+      Product(
         id: 'food4',
         name: 'Premium Dog Food',
-        description: 'Nutritionally balanced dog food with real meat and rice as the first ingredient.',
+        description:
+            'Nutritionally balanced dog food with real meat and rice as the first ingredient.',
         price: 50.99,
         rating: 4.7,
         imageUrls: ['assets/images/pfood1-removebg-preview.png'],
@@ -81,10 +84,11 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-       Product(
+      Product(
         id: 'food5',
         name: 'Premium Cat Food',
-        description: 'Nutritionally balanced cat food with real ocean fish as the first ingredient.',
+        description:
+            'Nutritionally balanced cat food with real ocean fish as the first ingredient.',
         price: 40.99,
         rating: 3.9,
         imageUrls: ['assets/images/pfood5-removebg-preview.png'],
@@ -95,10 +99,11 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-       Product(
+      Product(
         id: 'food8',
         name: 'Premium Cat Food',
-        description: 'Nutritionally balanced dog food with real meat as the first ingredient.',
+        description:
+            'Nutritionally balanced dog food with real meat as the first ingredient.',
         price: 49.99,
         rating: 4.9,
         imageUrls: ['assets/images/pfood8-removebg-preview.png'],
@@ -109,10 +114,11 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-       Product(
+      Product(
         id: 'food6',
         name: 'Premium Dog Food',
-        description: 'Nutritionally balanced dog food with real meat as the first ingredient.',
+        description:
+            'Nutritionally balanced dog food with real meat as the first ingredient.',
         price: 42.99,
         rating: 4.0,
         imageUrls: ['assets/images/pfood7-removebg-preview.png'],
@@ -123,7 +129,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-       Product(
+      Product(
         id: 'food7',
         name: 'Premium Bird Food',
         description: 'Nutritionally balanced dog food with rice crisps.',
@@ -151,7 +157,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-       Product(
+      Product(
         id: 'food10',
         name: 'Premium  Bird Food',
         description: 'Nutritionally balanced Bird food.',
@@ -249,7 +255,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-       Product(
+      Product(
         id: 'food17',
         name: 'Premium  Lizard Food',
         description: 'Nutritionally balanced Lizard food.',
@@ -267,7 +273,8 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
       Product(
         id: 'toy1',
         name: 'Chew Toy Set',
-        description: 'Durable chew toys to keep your dog entertained for hours.',
+        description:
+            'Durable chew toys to keep your dog entertained for hours.',
         price: 19.99,
         rating: 4.5,
         imageUrls: ['assets/images/stuffs33-removebg-preview.png'],
@@ -292,10 +299,11 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-       Product(
+      Product(
         id: 'toy3',
         name: 'Rabbit Chew Toy Set',
-        description: 'Durable chew toys to keep your rabbit entertained for hours.',
+        description:
+            'Durable chew toys to keep your rabbit entertained for hours.',
         price: 19.99,
         rating: 4.5,
         imageUrls: ['assets/images/stuffs35-removebg-preview.png'],
@@ -309,7 +317,8 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
       Product(
         id: 'toy4',
         name: 'Rabbit Chew Toy Set',
-        description: 'Durable chew toys to keep your rabbit entertained for hours.',
+        description:
+            'Durable chew toys to keep your rabbit entertained for hours.',
         price: 19.99,
         rating: 4.5,
         imageUrls: ['assets/images/stuffs36-removebg-preview.png'],
@@ -320,10 +329,11 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-       Product(
+      Product(
         id: 'toy6',
         name: 'Dog Chew Toy Set',
-        description: 'Durable chew toys to keep your dog entertained for hours.',
+        description:
+            'Durable chew toys to keep your dog entertained for hours.',
         price: 19.99,
         rating: 4.5,
         imageUrls: ['assets/images/stuffs35-removebg-preview.png'],
@@ -337,7 +347,8 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
       Product(
         id: 'toy7',
         name: 'Dog Chew Toy Set',
-        description: 'Durable chew toys to keep your dog entertained for hours.',
+        description:
+            'Durable chew toys to keep your dog entertained for hours.',
         price: 19.99,
         rating: 4.5,
         imageUrls: ['assets/images/stuffs33-removebg-preview.png'],
@@ -351,7 +362,8 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
       Product(
         id: 'toy5',
         name: 'Dog Chew Toy Set',
-        description: 'Durable chew toys to keep your dog entertained for hours.',
+        description:
+            'Durable chew toys to keep your dog entertained for hours.',
         price: 19.99,
         rating: 4.5,
         imageUrls: ['assets/images/stuffs32-removebg-preview.png'],
@@ -419,7 +431,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-      
+
       Product(
         id: 'groom4',
         name: 'Dog Styling Kit',
@@ -506,7 +518,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-     
+
       Product(
         id: 'acc2',
         name: 'Dog Bed Set',
@@ -605,7 +617,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-       Product(
+      Product(
         id: 'acc8',
         name: 'Fish Bowl',
         description: 'Fish Bowl.',
@@ -619,7 +631,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       ),
-       Product(
+      Product(
         id: 'acc9',
         name: 'Lizard Cage',
         description: 'Lizard Cage.',
@@ -831,7 +843,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
         updatedAt: DateTime.now(),
       ),
     ];
-    
+
     ref.read(productNotifierProvider.notifier).setProducts(products);
   }
 
@@ -842,26 +854,25 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
 
     return Scaffold(
       backgroundColor: Colors.grey[50],
-      appBar: AppBar(
-        title: const Text('Pet Store'),
-        backgroundColor: AppTheme.primaryColor,
-        foregroundColor: Colors.white,
-        actions: [
-          Consumer(
-            builder: (context, ref, child) {
-              final cartItems = ref.watch(cartNotifierProvider);
-              final itemCount = cartItems.fold(0, (sum, item) => sum + item.quantity);
-              return Badge(
-                isLabelVisible: itemCount > 0,
-                label: Text('$itemCount'),
-                child: IconButton(
-                  icon: const Icon(Iconsax.shopping_cart),
-                  onPressed: () => context.go('/cart'),
-                ),
-              );
-            },
-          ),
-        ],
+      appBar: CustomAppBar(
+        title: 'Pet Store',
+        cartWidget: Consumer(
+          builder: (context, ref, child) {
+            final cartItems = ref.watch(cartNotifierProvider);
+            final itemCount = cartItems.fold(
+              0,
+              (sum, item) => sum + item.quantity,
+            );
+            return Badge(
+              isLabelVisible: itemCount > 0,
+              label: Text('$itemCount'),
+              child: IconButton(
+                icon: const Icon(Iconsax.shopping_cart),
+                onPressed: () => context.go('/cart'),
+              ),
+            );
+          },
+        ),
       ),
       body: Column(
         children: [
@@ -885,7 +896,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
               ),
             ),
           ),
-          
+
           // Category Filter
           SizedBox(
             height: 50,
@@ -896,7 +907,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
               itemBuilder: (context, index) {
                 final category = _categories[index];
                 final isSelected = _selectedCategory == category;
-                
+
                 return Padding(
                   padding: const EdgeInsets.only(right: 8),
                   child: FilterChip(
@@ -910,17 +921,21 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
                     selectedColor: AppTheme.primaryColor.withValues(alpha: 0.2),
                     checkmarkColor: AppTheme.primaryColor,
                     labelStyle: TextStyle(
-                      color: isSelected ? AppTheme.primaryColor : Colors.grey[600],
-                      fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                      color: isSelected
+                          ? AppTheme.primaryColor
+                          : Colors.grey[600],
+                      fontWeight: isSelected
+                          ? FontWeight.w600
+                          : FontWeight.normal,
                     ),
                   ),
                 );
               },
             ),
           ),
-          
+
           const SizedBox(height: 16),
-          
+
           // Products Grid
           Expanded(
             child: filteredProducts.isEmpty
@@ -936,32 +951,35 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
                         SizedBox(height: 16),
                         Text(
                           'No products found',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.grey,
-                          ),
+                          style: TextStyle(fontSize: 18, color: Colors.grey),
                         ),
                       ],
                     ),
                   )
                 : GridView.builder(
                     padding: const EdgeInsets.all(16),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 16,
-                      mainAxisSpacing: 16,
-                      childAspectRatio: 0.7,
-                    ),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 16,
+                          mainAxisSpacing: 16,
+                          childAspectRatio: 0.7,
+                        ),
                     itemCount: filteredProducts.length,
                     itemBuilder: (context, index) {
                       final product = filteredProducts[index];
                       return ProductCard(
                         product: product,
                         onTap: () {
-                          context.push('/product/${product.id}', extra: product.toJson());
+                          context.push(
+                            '/product/${product.id}',
+                            extra: product.toJson(),
+                          );
                         },
                         onAddToCart: () {
-                          ref.read(cartNotifierProvider.notifier).addToCart(product);
+                          ref
+                              .read(cartNotifierProvider.notifier)
+                              .addToCart(product);
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text('${product.name} added to cart'),
@@ -993,9 +1011,16 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
     // Filter by search query
     if (_searchQuery.isNotEmpty) {
       filtered = filtered.where((product) {
-        return product.name.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-               product.description.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-               (product.brand?.toLowerCase().contains(_searchQuery.toLowerCase()) ?? false);
+        return product.name.toLowerCase().contains(
+              _searchQuery.toLowerCase(),
+            ) ||
+            product.description.toLowerCase().contains(
+              _searchQuery.toLowerCase(),
+            ) ||
+            (product.brand?.toLowerCase().contains(
+                  _searchQuery.toLowerCase(),
+                ) ??
+                false);
       }).toList();
     }
 

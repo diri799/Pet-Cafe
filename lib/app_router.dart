@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:pawfect_care/core/theme/app_theme.dart';
+import 'package:pawfect_care/core/widgets/sidebar_navigation.dart';
 import 'package:pawfect_care/core/services/auth_service.dart';
 import 'package:pawfect_care/features/auth/screens/login_screen.dart';
 // Role selection screen (accessible via profile "Change Role")
@@ -391,96 +391,11 @@ class ScaffoldWithNavBar extends StatefulWidget {
 }
 
 class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
-  int _currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
-    // Get current route to determine active index
+    // Get current route
     final location = GoRouterState.of(context).uri.path;
-    _currentIndex = _getCurrentIndex(location);
 
-    return Scaffold(
-      body: widget.child,
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          switch (index) {
-            case 0:
-              context.go('/home');
-              break;
-            case 1:
-              context.go('/shop');
-              break;
-            case 2:
-              context.go('/blog');
-              break;
-            case 3:
-              context.go('/appointments');
-              break;
-            case 4:
-              context.go('/cart');
-              break;
-            case 5:
-              context.go('/pets');
-              break;
-            case 6:
-              context.go('/profile');
-              break;
-            case 7:
-              context.go('/animal-feed');
-              break;
-          }
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Iconsax.home_2), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Iconsax.shop), label: 'Shop'),
-          BottomNavigationBarItem(
-            icon: Icon(Iconsax.document_text),
-            label: 'Blog',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Iconsax.calendar),
-            label: 'Appointments',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Iconsax.shopping_cart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(icon: Icon(Iconsax.pet), label: 'Pets'),
-          BottomNavigationBarItem(icon: Icon(Iconsax.user), label: 'Profile'),
-          BottomNavigationBarItem(
-            icon: Icon(Iconsax.video_play),
-            label: 'Feed',
-          ),
-        ],
-        selectedItemColor: AppTheme.primaryColor,
-        unselectedItemColor: Colors.grey,
-        showUnselectedLabels: true,
-        type: BottomNavigationBarType.fixed,
-      ),
-    );
-  }
-
-  int _getCurrentIndex(String location) {
-    switch (location) {
-      case '/home':
-        return 0;
-      case '/shop':
-        return 1;
-      case '/blog':
-        return 2;
-      case '/appointments':
-        return 3;
-      case '/cart':
-        return 4;
-      case '/pets':
-        return 5;
-      case '/profile':
-        return 6;
-      case '/animal-feed':
-        return 7;
-      default:
-        return 0;
-    }
+    return SidebarNavigation(currentRoute: location, child: widget.child);
   }
 }

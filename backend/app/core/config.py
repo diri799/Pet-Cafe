@@ -53,3 +53,6 @@ settings = Settings()
 
 # Ensure upload directory exists
 os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
+
+
+

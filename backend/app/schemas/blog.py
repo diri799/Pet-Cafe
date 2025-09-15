@@ -40,3 +40,6 @@ class BlogPostInDB(BlogPostBase):
 
 class BlogPost(BlogPostInDB):
     pass
+
+
+

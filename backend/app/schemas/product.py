@@ -45,3 +45,6 @@ class ProductInDB(ProductBase):
 
 class Product(ProductInDB):
     pass
+
+
+

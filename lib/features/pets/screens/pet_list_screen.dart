@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pawfect_care/core/theme/app_theme.dart';
+import 'package:pawfect_care/core/widgets/custom_app_bar.dart';
 import 'package:pawfect_care/features/pets/providers/pet_provider.dart';
 import 'package:pawfect_care/features/pets/models/pet_model.dart';
 
@@ -14,11 +15,9 @@ class PetListScreen extends ConsumerWidget {
     final pets = ref.watch(petsProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Pets'),
-        backgroundColor: AppTheme.primaryColor,
-        foregroundColor: Colors.white,
-        actions: [
+      appBar: CustomAppBar(
+        title: 'My Pets',
+        additionalActions: [
           IconButton(
             icon: const Icon(Iconsax.add),
             onPressed: () => context.go('/pets/add'),
@@ -41,11 +40,7 @@ class PetListScreen extends ConsumerWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Iconsax.pet,
-            size: 100,
-            color: Colors.grey[400],
-          ),
+          Icon(Iconsax.pet, size: 100, color: Colors.grey[400]),
           const SizedBox(height: 24),
           Text(
             'No Pets Added Yet',
@@ -58,10 +53,7 @@ class PetListScreen extends ConsumerWidget {
           const SizedBox(height: 8),
           Text(
             'Add your first pet to get started',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey[500],
-            ),
+            style: TextStyle(fontSize: 16, color: Colors.grey[500]),
           ),
           const SizedBox(height: 32),
           ElevatedButton.icon(
@@ -153,10 +145,7 @@ class PetListScreen extends ConsumerWidget {
                     const SizedBox(height: 4),
                     Text(
                       '${pet.species} • ${pet.breed}',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey[600],
-                      ),
+                      style: TextStyle(fontSize: 14, color: Colors.grey[600]),
                     ),
                     const SizedBox(height: 4),
                     Row(
@@ -175,11 +164,7 @@ class PetListScreen extends ConsumerWidget {
                           ),
                         ),
                         const SizedBox(width: 16),
-                        Icon(
-                          Iconsax.user,
-                          size: 14,
-                          color: Colors.grey[500],
-                        ),
+                        Icon(Iconsax.user, size: 14, color: Colors.grey[500]),
                         const SizedBox(width: 4),
                         Text(
                           pet.gender,
@@ -262,7 +247,9 @@ class PetListScreen extends ConsumerWidget {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Delete Pet'),
-        content: Text('Are you sure you want to delete ${pet.name}? This action cannot be undone.'),
+        content: Text(
+          'Are you sure you want to delete ${pet.name}? This action cannot be undone.',
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),

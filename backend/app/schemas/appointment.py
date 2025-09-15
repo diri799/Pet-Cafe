@@ -41,3 +41,6 @@ class AppointmentInDB(AppointmentBase):
 
 class Appointment(AppointmentInDB):
     pass
+
+
+

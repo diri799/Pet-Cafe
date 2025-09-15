@@ -34,6 +34,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     }
   }
 
+  String _getBackRoute() {
+    final user = _userService.currentUser;
+    if (user != null) {
+      final role = user['role'] ?? 'pet_owner';
+      switch (role) {
+        case 'veterinarian':
+          return '/vet-dashboard';
+        case 'shelter_admin':
+          return '/shelter-dashboard';
+        default:
+          return '/profile';
+      }
+    }
+    return '/profile';
+  }
+
   @override
   void dispose() {
     _nameController.dispose();
@@ -62,7 +78,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             backgroundColor: Colors.green,
           ),
         );
-        context.pop();
+        if (Navigator.of(context).canPop()) {
+          Navigator.of(context).pop();
+        } else {
+          context.go(_getBackRoute());
+        }
       }
     } catch (e) {
       if (mounted) {
@@ -95,7 +115,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             if (Navigator.of(context).canPop()) {
               Navigator.of(context).pop();
             } else {
-              context.go('/profile');
+              context.go(_getBackRoute());
             }
           },
         ),
@@ -148,7 +168,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       children: [
                         CircleAvatar(
                           radius: 60,
-                          backgroundColor: AppTheme.primaryColor.withOpacity(0.1),
+                          backgroundColor: AppTheme.primaryColor.withOpacity(
+                            0.1,
+                          ),
                           child: const Icon(
                             Iconsax.user,
                             size: 60,
@@ -186,10 +208,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     const SizedBox(height: 16),
                     const Text(
                       'Tap to change profile picture',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      ),
+                      style: TextStyle(color: Colors.grey, fontSize: 14),
                     ),
                   ],
                 ),
@@ -323,23 +342,32 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    
+
                     ListTile(
-                      leading: const Icon(Iconsax.calendar, color: AppTheme.primaryColor),
+                      leading: const Icon(
+                        Iconsax.calendar,
+                        color: AppTheme.primaryColor,
+                      ),
                       title: const Text('Member Since'),
                       subtitle: const Text('January 2024'),
                       contentPadding: EdgeInsets.zero,
                     ),
-                    
+
                     ListTile(
-                      leading: const Icon(Iconsax.shield_tick, color: AppTheme.primaryColor),
+                      leading: const Icon(
+                        Iconsax.shield_tick,
+                        color: AppTheme.primaryColor,
+                      ),
                       title: const Text('Account Status'),
                       subtitle: const Text('Verified'),
                       contentPadding: EdgeInsets.zero,
                     ),
-                    
+
                     ListTile(
-                      leading: const Icon(Iconsax.location, color: AppTheme.primaryColor),
+                      leading: const Icon(
+                        Iconsax.location,
+                        color: AppTheme.primaryColor,
+                      ),
                       title: const Text('Location'),
                       subtitle: const Text('Not specified'),
                       trailing: TextButton(
@@ -362,7 +390,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   void _showLocationDialog(BuildContext context) {
     final locationController = TextEditingController();
-    
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -382,7 +410,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               controller: locationController,
               decoration: InputDecoration(
                 hintText: 'e.g., New York, NY or 123 Main St',
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
                 prefixIcon: const Icon(Iconsax.location),
               ),
             ),
@@ -402,7 +432,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       Navigator.of(context).pop();
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text('Location updated: ${locationController.text}'),
+                          content: Text(
+                            'Location updated: ${locationController.text}',
+                          ),
                           backgroundColor: Colors.green,
                         ),
                       );

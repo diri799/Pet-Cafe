@@ -181,3 +181,6 @@ async def delete_appointment(
     db.commit()
     
     return {"message": "Appointment deleted successfully"}
+
+
+

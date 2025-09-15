@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:pawfect_care/core/theme/app_theme.dart';
+import 'package:pawfect_care/core/widgets/custom_app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,23 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'PawfectCare',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: AppTheme.primaryColor,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Iconsax.notification, color: Colors.white),
-            onPressed: () => context.go('/notifications'),
-          ),
-        ],
-      ),
+      appBar: const CustomAppBar(title: 'PawfectCare'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -34,11 +19,11 @@ class HomeScreen extends StatelessWidget {
             // Welcome Section
             _buildWelcomeSection(context),
             const SizedBox(height: 24),
-            
+
             // Quick Actions
             _buildQuickActions(context),
             const SizedBox(height: 24),
-            
+
             // Featured Pets
             _buildSectionHeader('Featured Pets', 'See All', () {
               context.go('/pets');
@@ -46,7 +31,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 12),
             _buildFeaturedPets(),
             const SizedBox(height: 24),
-            
+
             // Services
             _buildSectionHeader('Our Services', 'View All', () {
               context.go('/services');
@@ -54,7 +39,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 12),
             _buildServicesGrid(),
             const SizedBox(height: 24),
-            
+
             // Emergency Contact
             _buildEmergencyContact(),
           ],
@@ -95,20 +80,23 @@ class HomeScreen extends StatelessWidget {
                 Text(
                   'Hello, Pet Parent! 🐾',
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
                 const SizedBox(height: 6),
                 Text(
                   'How can we help your furry friend today?',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Colors.white.withValues(alpha: 0.9),
-                      ),
+                    color: Colors.white.withValues(alpha: 0.9),
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 4,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(16),
@@ -131,11 +119,7 @@ class HomeScreen extends StatelessWidget {
               color: Colors.white.withValues(alpha: 0.2),
               shape: BoxShape.circle,
             ),
-            child: const Icon(
-              Iconsax.heart,
-              color: Colors.white,
-              size: 36,
-            ),
+            child: const Icon(Iconsax.heart, color: Colors.white, size: 36),
           ),
         ],
       ),
@@ -144,7 +128,11 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildQuickActions(BuildContext context) {
     final quickActions = [
-      {'icon': Iconsax.calendar_add, 'label': 'Appointment', 'route': '/appointments'},
+      {
+        'icon': Iconsax.calendar_add,
+        'label': 'Appointment',
+        'route': '/appointments',
+      },
       {'icon': Iconsax.shop, 'label': 'Shop', 'route': '/shop'},
       {'icon': Iconsax.health, 'label': 'Health', 'route': '/blog'},
       {'icon': Iconsax.pet, 'label': 'Pets', 'route': '/pets'},
@@ -216,16 +204,17 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSectionHeader(String title, String actionText, VoidCallback onAction) {
+  Widget _buildSectionHeader(
+    String title,
+    String actionText,
+    VoidCallback onAction,
+  ) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         TextButton(
           onPressed: onAction,
@@ -244,39 +233,39 @@ class HomeScreen extends StatelessWidget {
   Widget _buildFeaturedPets() {
     final featuredPets = [
       {
-        'name': 'Max', 
-        'breed': 'Golden Retriever', 
+        'name': 'Max',
+        'breed': 'Golden Retriever',
         'age': '2 years',
         'image': 'assets/images/pet1.jpg',
-        'status': 'Available'
+        'status': 'Available',
       },
       {
-        'name': 'Bella', 
-        'breed': 'Siberian Husky', 
+        'name': 'Bella',
+        'breed': 'Siberian Husky',
         'age': '1.5 years',
         'image': 'assets/images/pet2.jpg',
-        'status': 'Adopted'
+        'status': 'Adopted',
       },
       {
-        'name': 'Charlie', 
-        'breed': 'Beagle', 
+        'name': 'Charlie',
+        'breed': 'Beagle',
         'age': '3 years',
         'image': 'assets/images/pet3.jpg',
-        'status': 'Available'
+        'status': 'Available',
       },
       {
-        'name': 'Luna', 
-        'breed': 'Border Collie', 
+        'name': 'Luna',
+        'breed': 'Border Collie',
         'age': '1 year',
         'image': 'assets/images/pet4.jpg',
-        'status': 'Available'
+        'status': 'Available',
       },
       {
-        'name': 'Rocky', 
-        'breed': 'German Shepherd', 
+        'name': 'Rocky',
+        'breed': 'German Shepherd',
         'age': '4 years',
         'image': 'assets/images/pet5.jpg',
-        'status': 'Available'
+        'status': 'Available',
       },
     ];
 
@@ -288,7 +277,7 @@ class HomeScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final pet = featuredPets[index];
           final isAvailable = pet['status'] == 'Available';
-          
+
           return GestureDetector(
             onTap: () => context.go('/pets'),
             child: Container(
@@ -313,12 +302,16 @@ class HomeScreen extends StatelessWidget {
                   Container(
                     height: 120,
                     decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(16),
+                      ),
                     ),
                     child: Stack(
                       children: [
                         ClipRRect(
-                          borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+                          borderRadius: const BorderRadius.vertical(
+                            top: Radius.circular(16),
+                          ),
                           child: Image.asset(
                             pet['image'] as String,
                             width: double.infinity,
@@ -328,8 +321,12 @@ class HomeScreen extends StatelessWidget {
                               return Container(
                                 height: 120,
                                 decoration: BoxDecoration(
-                                  color: AppTheme.primaryColor.withValues(alpha: 0.1),
-                                  borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+                                  color: AppTheme.primaryColor.withValues(
+                                    alpha: 0.1,
+                                  ),
+                                  borderRadius: const BorderRadius.vertical(
+                                    top: Radius.circular(16),
+                                  ),
                                 ),
                                 child: const Center(
                                   child: Icon(
@@ -347,7 +344,10 @@ class HomeScreen extends StatelessWidget {
                           top: 8,
                           right: 8,
                           child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 4,
+                            ),
                             decoration: BoxDecoration(
                               color: isAvailable ? Colors.green : Colors.orange,
                               borderRadius: BorderRadius.circular(12),
@@ -407,12 +407,42 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildServicesGrid() {
     final services = [
-      {'icon': Iconsax.health, 'label': 'Vet Visit', 'color': Colors.red, 'route': '/appointments'},
-      {'icon': Iconsax.shop, 'label': 'Pet Shop', 'color': Colors.blue, 'route': '/shop'},
-      {'icon': Iconsax.scan, 'label': 'Scan QR', 'color': Colors.green, 'route': '/scan'},
-      {'icon': Iconsax.calendar, 'label': 'Appointment', 'color': Colors.orange, 'route': '/appointments'},
-      {'icon': Iconsax.heart, 'label': 'Adoption', 'color': Colors.purple, 'route': '/pets'},
-      {'icon': Iconsax.message, 'label': 'Support', 'color': Colors.teal, 'route': '/support'},
+      {
+        'icon': Iconsax.health,
+        'label': 'Vet Visit',
+        'color': Colors.red,
+        'route': '/appointments',
+      },
+      {
+        'icon': Iconsax.shop,
+        'label': 'Pet Shop',
+        'color': Colors.blue,
+        'route': '/shop',
+      },
+      {
+        'icon': Iconsax.scan,
+        'label': 'Scan QR',
+        'color': Colors.green,
+        'route': '/scan',
+      },
+      {
+        'icon': Iconsax.calendar,
+        'label': 'Appointment',
+        'color': Colors.orange,
+        'route': '/appointments',
+      },
+      {
+        'icon': Iconsax.heart,
+        'label': 'Adoption',
+        'color': Colors.purple,
+        'route': '/pets',
+      },
+      {
+        'icon': Iconsax.message,
+        'label': 'Support',
+        'color': Colors.teal,
+        'route': '/support',
+      },
     ];
 
     return GridView.builder(
@@ -428,7 +458,7 @@ class HomeScreen extends StatelessWidget {
       itemBuilder: (context, index) {
         final service = services[index];
         final color = service['color'] as Color;
-        
+
         return GestureDetector(
           onTap: () {
             final route = service['route'] as String;
@@ -508,11 +538,7 @@ class HomeScreen extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Icon(
-            Iconsax.warning_2,
-            color: Colors.white,
-            size: 32,
-          ),
+          const Icon(Iconsax.warning_2, color: Colors.white, size: 32),
           const SizedBox(width: 16),
           Expanded(
             child: Column(
@@ -529,10 +555,7 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(height: 4),
                 Text(
                   'Contact our 24/7 emergency vet service',
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 12,
-                  ),
+                  style: TextStyle(color: Colors.white70, fontSize: 12),
                 ),
               ],
             ),
@@ -547,6 +570,4 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-
 }
-
